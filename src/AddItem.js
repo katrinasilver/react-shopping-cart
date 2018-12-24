@@ -44,7 +44,6 @@ class AddItem extends Component {
     }
 
     this.setState({
-      addedProduct: '',
       productQuantity: ''
     })
 
@@ -61,18 +60,26 @@ class AddItem extends Component {
             id="quantity"
             name="productQuantity"
             value={this.state.productQuantity}
-            onChange={this.onChange} />
+            onChange={this.onChange} required/>
         </div>
 
         <div className="form-group">
           <label htmlFor="products">Product</label>
           <select className="form-control" id="products" name="addedProduct"
-            value={this.state.addedProduct}
-            onChange={this.onChange}>
+            defaultValue={this.props.default}
+            onChange={this.onChange} required>
+
+            {/* Question for instructor: right now when you add to cart, it doesnt setState the addedProduct state
+            because it was causing the value of the first option to be undefined. I don't know
+            how to make it so that it goes back to the disabled option below. Feedback is much appreciated.
+            Thank you :D */}
+            <option disabled={this.defaultDisabled ? true : false}>Please choose one...</option>
+
             {
               this.state.products.map(product =>
-                <ProductOptions key={product.id} index={product.id} name={product.name}/>)
+                <ProductOptions key={product.id} index={product.id} name={product.name} price={product.priceInCents}/>)
             }
+
           </select>
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>

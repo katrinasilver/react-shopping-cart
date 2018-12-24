@@ -34,8 +34,9 @@ class App extends Component {
         <CartItems cartItemsList={this.state.cartItemsList} />
         <br />
 
-        {/* Shoud lines 38 - 40 be it's own component? I thought it was small enough to not be! */}
-        <div className="totals container">
+        {/* Question for instructor: Shoud lines 38 - 40 be it's own component?
+        I thought it was small enough to not be! :) */}
+        <div className="container">
           Total Price: ${ this.findCartItems().reduce((acc, val) => acc + val, 0) }
         </div>
 
