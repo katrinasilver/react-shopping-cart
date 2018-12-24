@@ -16,10 +16,12 @@ class App extends Component {
     }
   }
 
+  // Should I be adding this to the state?
   lineItemTotals = () => {
     let prices = this.state.cartItemsList.map(item => item.product.priceInCents)
     let quantities = this.state.cartItemsList.map(item => item.quantity)
     let total = 0
+
     for (let i = 0; i < prices.length; i++) {
       total += prices[i] * quantities[i]
     }
