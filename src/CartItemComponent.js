@@ -1,12 +1,13 @@
 import React from 'react'
 
-const CartItemComponent = (props) => {
+// with props!
+const CartItemComponent = (product) => {
   return (
-    <div class="collection-item list-group-item">
-      <div class="row">
-        <div class="col-md-8">{props.name}</div>
-        <div class="col-md-2">{props.priceInCents}</div>
-        <div class="col-md-2">{props.quantity}</div>
+    <div className="collection-item list-group-item" data-product={product.index}>
+      <div className="row">
+        <div className="col-md-8">{product.name}</div>
+        <div className="col-md-2">${product.priceInCents}</div>
+        <div className="col-md-2">{product.quantity}</div>
       </div>
     </div>
   )
