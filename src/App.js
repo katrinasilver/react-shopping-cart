@@ -16,11 +16,6 @@ class App extends Component {
     }
   }
 
-  // Should I be adding this to the state?
-  lineItemTotals = () => this.state.cartItemsList
-    .reduce((p, i) => p + (i.product.priceInCents * i.quantity), 0)
-
-
   addOne = (product) =>
     this.setState({
       cartItemsList: [...this.state.cartItemsList, product]
@@ -40,7 +35,8 @@ class App extends Component {
         {/* Question for instructor: Shoud lines 38 - 40 be it's own component?
         I thought it was small enough to not be! :) */}
         <div className="container">
-            Total Price: ${ this.lineItemTotals() }
+          Total Price: ${this.state.cartItemsList
+            .reduce((p, i) => p + (i.product.priceInCents * i.quantity), 0)}
         </div>
 
         <AddItem addOne={this.addOne} stateLength={this.stateLength} />
