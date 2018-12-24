@@ -16,7 +16,15 @@ class App extends Component {
     }
   }
 
-  findCartItems = () => this.state.cartItemsList.map(item => item.product.priceInCents)
+  lineItemTotals = () => {
+    let prices = this.state.cartItemsList.map(item => item.product.priceInCents)
+    let quantities = this.state.cartItemsList.map(item => item.quantity)
+    let total = 0
+    for (let i = 0; i < prices.length; i++) {
+      total += prices[i] * quantities[i]
+    }
+    return total
+  }
 
   addOne = (product) =>
     this.setState({
@@ -37,7 +45,7 @@ class App extends Component {
         {/* Question for instructor: Shoud lines 38 - 40 be it's own component?
         I thought it was small enough to not be! :) */}
         <div className="container">
-          Total Price: ${ this.findCartItems().reduce((acc, val) => acc + val, 0) }
+            Total Price: ${ this.lineItemTotals() }
         </div>
 
         <AddItem addOne={this.addOne} stateLength={this.stateLength} />
