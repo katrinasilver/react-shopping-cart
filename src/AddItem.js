@@ -34,13 +34,13 @@ class AddItem extends Component {
     })
   }
 
-  onSubmit = (e, i) => {
+  onSubmit = (e) => {
     e.preventDefault()
 
     let newProduct = {
       id: this.newId(),
       product: this.findProduct(),
-      quantity: +(this.state.productQuantity)
+      quantity: +this.state.productQuantity
     }
 
     this.setState({

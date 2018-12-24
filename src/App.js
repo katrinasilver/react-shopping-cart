@@ -17,17 +17,9 @@ class App extends Component {
   }
 
   // Should I be adding this to the state?
-  lineItemTotals = () => {
-    let prices = this.state.cartItemsList.map(item => item.product.priceInCents)
-    let quantities = this.state.cartItemsList.map(item => item.quantity)
-    let total = 0
+  lineItemTotals = () => this.state.cartItemsList
+    .reduce((p, i) => p + (i.product.priceInCents * i.quantity), 0)
 
-    for (let i in prices) {
-      total += prices[i] * quantities[i]
-    }
-
-    return total
-  }
 
   addOne = (product) =>
     this.setState({
