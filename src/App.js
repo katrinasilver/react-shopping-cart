@@ -22,9 +22,10 @@ class App extends Component {
     let quantities = this.state.cartItemsList.map(item => item.quantity)
     let total = 0
 
-    for (let i = 0; i < prices.length; i++) {
+    for (let i in prices) {
       total += prices[i] * quantities[i]
     }
+
     return total
   }
 
