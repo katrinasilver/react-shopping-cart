@@ -69,10 +69,6 @@ class AddItem extends Component {
             defaultValue={this.props.default}
             onChange={this.onChange} required>
 
-            {/* Question for instructor: right now when you add to cart, it doesnt setState the addedProduct state
-            because it was causing the value of the first option to be undefined. I don't know
-            how to make it so that it goes back to the disabled option below. Feedback is much appreciated.
-            Thank you :D */}
             <option disabled={this.defaultDisabled ? true : false}>Please choose one...</option>
 
             {

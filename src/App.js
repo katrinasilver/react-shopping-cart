@@ -32,8 +32,6 @@ class App extends Component {
         <CartItems cartItemsList={this.state.cartItemsList} />
         <br />
 
-        {/* Question for instructor: Shoud lines 38 - 40 be it's own component?
-        I thought it was small enough to not be! :) */}
         <div className="container">
           Total Price: ${this.state.cartItemsList
             .reduce((p, i) => p + (i.product.priceInCents * i.quantity), 0)}
